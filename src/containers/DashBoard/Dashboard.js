@@ -1,30 +1,24 @@
+import React from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
+import Employees from '../Employees';
+import EmployeeDetails from '../../components/EmployeeDetails';
+import NewEmployee from '../../components/NewEmployee';
+import ManagedProjects from '../ManageProjects';
+import Header from '../Headers/Header';
 
-import React, { useState } from 'react';
-import '../Headers/Header.css'
-import Header from "../Headers/Header";
-import PageRoutes from "./PageRoutes";
-import Employee from '../../components/Employee';
 
-export default function Dashboard() {
+const Dashboard = () => {
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Employees />} />
+        <Route path="/employees/:id" element={<EmployeeDetails />} />
+        <Route path="/new-employee" element={<NewEmployee />} />
+        <Route path="/manage-projects/:id" element={<ManagedProjects />} />
+      </Routes>
+    </div>
+  );
+};
 
-
-const [selectedStudents, setSelectedStudents] = useState([]);
-
-    return (
-        <React.Fragment>
-            {/* <SelectedStudents.Provider value={{ selectedStudents, setSelectedStudents }}> */}
-
-                <div className='header'>
-                    <Header />
-                </div>
-                <div className="Product">
-                    <PageRoutes />
-
-                </div>
-
-            {/* </SelectedStudents.Provider> */}
-        </React.Fragment>
-
-    )
-
-}
+export default Dashboard;

@@ -1,15 +1,15 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-function Employee(props){
-
-    return <div className="Content" >
-            <h1>{props.id}</h1>
-            <div className="Info">
-                <div className="Author">{props.name}</div>
-            </div>
-            <br/>
-        </div>
-
-}
+const Employee = ({ id, name }) => {
+  return (
+    <Link to={`/employees/${id}`}>
+      <div>
+        <p>ID: {id}</p>
+        <p>Name: {name}</p>
+      </div>
+    </Link>
+  );
+};
 
 export default Employee;

@@ -1,35 +1,34 @@
-import axios from "axios";
-import { useRef } from "react";
-import { useNavigate } from "react-router";
-import './NewEmployee.css';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import apiService from './api';
 
-const NewEmployee = (props) => {
+const NewEmployee = () => {
+  const [name, setName] = useState('');
+  const [salary, setSalary] = useState('');
+  const history = useHistory();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await apiService.addEmployee({ name, salary });
+      history.push('/employees');
+    } catch (error) {
+      console.error('Error adding new employee:', error);
+    }
+  };
 
-
-    return (
-        <div className="NewProduct">
-
-            <form >
-                <h1>Add Employee</h1>
-
-                <label>Name</label>
-                <input type="text"
-                    label={'name'}
-                    name={'name'}
-                />
-
-                <label>Salary</label>
-                <input type="text"
-                    label={'salary'}
-                    name={'salary'}
-                />
-                <button>Add Employee </button>
-            </form>
-
-        </div>
-    );
-
-}
+  return (
+    <div>
+      <h2>New Employee</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Name:</label>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <label>Salary:</label>
+        <input type="text" value={salary} onChange={(e) => setSalary(e.target.value)} />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
 
 export default NewEmployee;

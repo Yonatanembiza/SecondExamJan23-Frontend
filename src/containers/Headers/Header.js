@@ -1,25 +1,14 @@
-import React from "react";
-
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import logo from '../../assets/logos/miu-logo.png';
-
-import './Header.css'
-
 const Header = () => {
-
-    return (
-        <header>
-            <nav>
-                <ul>
-                    <li>Employee</li>
-                    <li>Add Employee</li>
-                </ul>
-            </nav>
-        </header>
-    );
-}
-
-
+  return (
+    <div>
+      <Link to="/">Employees</Link>
+      <p></p>
+      <Link to="/new-employee">Add Employee</Link>
+    </div>
+  );
+};
 
 export default Header;

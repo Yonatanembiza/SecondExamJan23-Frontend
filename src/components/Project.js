@@ -1,22 +1,12 @@
-import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import React from 'react';
 
-
-function Project(props) {
-
-
-
-
-    return (
-        <div className='Review'>
-            {"Id: " + props.pId + " - Project Name: " + props.pName}
-
-            <div>
-
-            </div>
-        </div>
-    )
-}
+const Project = ({ id, name }) => {
+  return (
+    <div>
+      <p>ID: {id}</p>
+      <p>Name: {name}</p>
+    </div>
+  );
+};
 
 export default Project;
