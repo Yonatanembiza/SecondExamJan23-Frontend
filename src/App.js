@@ -1,13 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Dashboard from './Dashboard';
+import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import Dashboard from './containers/DashBoard/Dashboard';
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Dashboard />
-    </Router>
+    <div className="App">
+      <BrowserRouter>
+        <h1> WAA 2nd Exam </h1>
+        <Dashboard />
+      </BrowserRouter>
+    </div>
   );
-};
+}
 
 export default App;

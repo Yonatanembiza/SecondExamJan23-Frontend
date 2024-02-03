@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import apiService from './api';
 
 const NewEmployee = () => {
   const [name, setName] = useState('');
   const [salary, setSalary] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await apiService.addEmployee({ name, salary });
-      history.push('/employees');
+      // Use navigate to go to the Employees component
+      navigate('/employees');
     } catch (error) {
       console.error('Error adding new employee:', error);
     }
